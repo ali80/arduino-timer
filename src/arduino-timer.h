@@ -65,7 +65,12 @@ class Timer {
   public:
 
     typedef uintptr_t Task; /* public task handle */
+
+# if !defined(ESP32) && !defined(ESP8266)
     typedef bool (*handler_t)(T opaque); /* task handler func signature */
+#else
+    typedef std::function<bool(T opaque)> handler_t;
+#endif
 
     /* Calls handler with opaque as argument in delay units of time */
     Task
