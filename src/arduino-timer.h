@@ -42,6 +42,7 @@
 #endif
 
 #include <limits.h>
+#include <functional>
 
 #ifndef TIMER_MAX_TASKS
     #define TIMER_MAX_TASKS 0x10
